@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#171412" />
+    <title>给你的信</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="ambient-decor" aria-hidden="true">
+        <span class="decor decor--heart decor--heart-one">♡</span>
+        <span class="decor decor--heart decor--heart-two">♡</span>
+        <span class="decor decor--sparkle decor--sparkle-one">✦</span>
+        <span class="decor decor--sparkle decor--sparkle-two">✧</span>
+      </div>
+      <header class="topbar">
+        <span class="topbar-mark" aria-hidden="true">✦</span>
+        <span>给最特别的你</span>
+        <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">
+          <span aria-hidden="true">♪</span>
+          <span id="music-label">播放音乐</span>
+        </button>
+      </header>
+
+      <section class="scene scene--active" id="scene-envelope" aria-labelledby="envelope-title">
+        <div class="scene-heading intro-copy">
+          <p class="eyebrow">A little letter for you</p>
+          <h1 id="envelope-title">有一封信，想亲手交给你</h1>
+          <p>准备好了就打开吧。</p>
+          <p class="dedication">只给你看的小心意 · 点击打开</p>
+        </div>
+        <div class="photo-frame photo-frame--envelope">
+          <img src="assets/envelope.jpg" alt="一封写着给你的信的信封" />
+        </div>
+        <div class="action-row" aria-label="信封操作">
+          <button class="primary-button" data-route="letter" type="button">打开信封</button>
+          <button class="secondary-button" data-route="cute" type="button">看可可版</button>
+        </div>
+        <p class="photo-note">两份小惊喜，等你亲自选。</p>
+      </section>
+
+      <section class="scene" id="scene-letter" aria-labelledby="letter-title" hidden>
+        <div class="scene-heading">
+          <p class="eyebrow">The letter inside</p>
+          <h2 id="letter-title">写给亲爱的你</h2>
+          <p>这一页，慢慢看。</p>
+        </div>
+        <div class="photo-frame photo-frame--letter">
+          <img src="assets/letter.jpg" alt="手写情书" />
+        </div>
+        <div class="action-row action-row--single">
+          <button class="primary-button" data-route="envelope" type="button">合上信封</button>
+        </div>
+      </section>
+
+      <section class="scene scene--image-options" id="scene-cute" aria-labelledby="cute-title" hidden>
+        <div class="scene-heading">
+          <p class="eyebrow">A tiny surprise</p>
+          <h2 id="cute-title">可爱版的我们</h2>
+          <p>点开图片，继续看看吧。</p>
+        </div>
+        <button class="photo-frame photo-frame--interactive" data-options-target="cute-actions" type="button" aria-expanded="false" aria-controls="cute-actions">
+          <img src="assets/cute.jpg" alt="转正后的可爱手绘信封" />
+        </button>
+        <div class="action-row option-row" id="cute-actions" hidden>
+          <button class="secondary-button" data-route="back" type="button">看看背面</button>
+          <button class="secondary-button" data-route="expanded" type="button">展开看看</button>
+          <button class="primary-button" data-route="letter" type="button">打开信封</button>
+          <button class="secondary-button" data-route="envelope" type="button">看信封</button>
+        </div>
+      </section>
+
+      <section class="scene scene--image-options" id="scene-back" aria-labelledby="back-title" hidden>
+        <div class="scene-heading">
+          <p class="eyebrow">The other side</p>
+          <h2 id="back-title">信封背面</h2>
+          <p>换个角度，也很可爱。</p>
+        </div>
+        <button class="photo-frame photo-frame--interactive" data-options-target="back-actions" type="button" aria-expanded="false" aria-controls="back-actions">
+          <img src="assets/back.jpg" alt="转正后的信封背面手绘图" />
+        </button>
+        <div class="action-row option-row" id="back-actions" hidden>
+          <button class="secondary-button" data-route="cute" type="button">看正面</button>
+          <button class="secondary-button" data-route="expanded" type="button">展开看看</button>
+          <button class="secondary-button" data-route="envelope" type="button">看信封</button>
+        </div>
+      </section>
+
+      <section class="scene scene--image-options" id="scene-expanded" aria-labelledby="expanded-title" hidden>
+        <div class="scene-heading">
+          <p class="eyebrow">A little more</p>
+          <h2 id="expanded-title">展开看看</h2>
+          <p>把这份小心意展开给你看。</p>
+        </div>
+        <button class="photo-frame photo-frame--interactive" data-options-target="expanded-actions" type="button" aria-expanded="false" aria-controls="expanded-actions">
+          <img src="assets/expanded.jpg" alt="转正后的展开手绘图" />
+        </button>
+        <div class="action-row option-row" id="expanded-actions" hidden>
+          <button class="secondary-button" data-route="cute" type="button">看正面</button>
+          <button class="secondary-button" data-route="back" type="button">看背面</button>
+          <button class="secondary-button" data-route="envelope" type="button">看信封</button>
+        </div>
+      </section>
+
+      <audio id="bg-music" loop preload="metadata" aria-label="背景音乐">
+        <source src="assets/private-run.m4a" type="audio/mp4" />
+      </audio>
+      <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
